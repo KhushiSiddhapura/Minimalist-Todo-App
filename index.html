@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!-- PWA Meta Tags and Links -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#3B82F6" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  </head>
+  <body>
+    <main class="light">
+      <nav>
+        <div class="nav-left">
+          <p>Todo-App</p>
+        </div>
+        <div class="nav-right">
+          <button id="addTask">Add Task</button>
+          <img
+            src="./assets/Dark Dislay Mode.png"
+            alt="icon"
+            class="dark-mode"
+            />
+            <img
+            src="./assets/Light Display Mode.png"
+            alt="icon"
+            class="light-mode"
+          />
+        </div>
+      </nav>
+      <section>
+        <div class="list">
+          
+        </div>
+        <div class="form">
+          <h1>Task Details</h1>
+          <form>
+            <div>
+              <i class="ri-close-line close-form"></i>
+            </div>
+            <input type="text" placeholder="Task Title.." required />
+            <input type="text" placeholder="Task Description" />
+            <select name="priority" id="prio">
+              <option value="High">High</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            <button type="submit" id="add">Add Task</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteConfirmModal" class="confirm-overlay">
+      <div class="confirm-box">
+        <h2>Delete Task?</h2>
+        <p>Are you sure you want to permanently delete this task? This cannot be undone.</p>
+        <div class="confirm-buttons">
+          <button id="cancelDelete" class="btn-cancel">Cancel</button>
+          <button id="confirmDelete" class="btn-confirm">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

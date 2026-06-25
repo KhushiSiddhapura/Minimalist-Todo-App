@@ -1,0 +1,423 @@
+:root {
+    --l-background: #e7e8e8;
+    --l-card: #FFFFFF;
+    --l-primary: #3B82F6;
+    --l-text-primary: #080b12;
+    --l-text-secondary: #6B7280;
+    --d-background: #111827;
+    --d-card: #1F2937;
+    --d-primary: #60A5FA;
+    --d-text-primary: #F9FAFB;
+    --d-text-seconday: #9CA3AF;
+    --high-bg: rgba(239, 68, 68, 0.7);
+    --medium-bg: rgba(245, 158, 11, 0.5);
+    --low-bg: rgba(16, 185, 129, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+html,
+body {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.light-mode {
+    display: none;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 3vmin 1.5vmax;
+}
+
+nav {
+    border-radius: 20px;
+    padding: 0 3vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .nav-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+nav .nav-right {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: 2vmax;
+}
+
+nav .nav-right img {
+    height: 20px;
+    cursor: pointer;
+}
+
+button {
+    font-weight: 500;
+    padding: 1vmin 1vmax;
+    border: 0;
+    border-radius: 1vmin;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    scale: 0.98;
+}
+
+section {
+    padding: 1vmin 0;
+    min-height: calc(100vh - 60px - 6vmin);
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.list {
+    padding: 4vmin 0;
+    height: fit-content;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    border-radius: 2vmin;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4vmin 2vmax;
+    position: relative;
+}
+
+.card .task {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card .task .title {
+    font-size: clamp(16px, 4vmax, 32px);
+}
+
+.btns .edit,
+.btns .del {
+    width: 65px;
+}
+
+.card .priority {
+    position: absolute;
+    top: 0;
+    left: 2vw;
+    transform: translateY(-50%);
+}
+
+.priority .High {
+    padding: 1px 10px;
+    background-color: var(--high-bg);
+    border-radius: 20px;
+}
+
+.priority .Medium {
+    padding: 1px 10px;
+    background-color: var(--medium-bg);
+    border-radius: 20px;
+}
+
+.priority .Low {
+    padding: 1px 10px;
+    background-color: var(--low-bg);
+    border-radius: 20px;
+}
+
+.form {
+    display: none;
+    position: absolute;
+    background-color: rgba(59, 59, 59, 0.8);
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.form form {
+    width: 40%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 3vmin 2vmax;
+}
+
+.form form input {
+    padding: 1vmin 2vmax;
+    font-size: 1rem;
+    border: 0;
+    border-radius: 8px;
+}
+
+.form form select {
+    padding: 1vmin 2vmax;
+    cursor: pointer;
+    border: 0;
+    border-radius: 8px;
+}
+
+.form form select option {
+    cursor: pointer;
+}
+
+.form form div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form form div i{
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+main.light {
+    background-color: var(--l-background);
+    color: var(--l-text-primary);
+}
+
+main.dark {
+    background-color: var(--d-background);
+    color: var(--d-text-primary);
+}
+
+.light nav {
+    background-color: var(--l-primary);
+    color: var(--l-background);
+}
+
+.dark nav {
+    background-color: var(--d-text-primary);
+    color: var(--d-background);
+}
+
+.light .nav-right button {
+    background-color: var(--l-background);
+    color: var(--l-primary);
+}
+
+.dark .nav-right button {
+    background-color: var(--d-background);
+    color: var(--d-text-primary);
+}
+
+.light .card {
+    background-color: var(--l-card);
+}
+
+.dark .card {
+    background-color: var(--d-card);
+}
+
+.light .card .task .description {
+    color: var(--l-text-secondary);
+}
+
+.dark .card .task .description {
+    color: var(--d-text-seconday);
+}
+
+.light .card .btns button {
+    background-color: var(--l-primary);
+    color: var(--l-card);
+}
+
+.dark .card .btns button {
+    background-color: var(--d-primary);
+    color: var(--d-card);
+}
+
+.light .form form {
+    background-color: var(--l-background);
+    color: var(--l-text-primary);
+}
+
+.light .form h1 {
+    color: var(--l-text-primary);
+}
+
+.light .form form button {
+    background-color: var(--l-primary);
+    color: var(--l-card);
+}
+
+.dark .form form {
+    background-color: var(--d-background);
+    color: var(--d-text-primary);
+}
+
+.dark .form h1 {
+    color: var(--d-text-primary);
+}
+
+.dark .form form button {
+    background-color: var(--d-primary);
+    color: var(--d-card);
+}
+
+.light .form form div i{
+    color: var(--l-primary);
+}
+
+.dark .form form div i{
+    color: var(--d-primary);
+}
+
+@media (max-width:550px) {
+    .list {
+        grid-template-columns: 1fr;
+        padding: 2vh 0;
+    }
+
+    .card {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card .btns {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .form form {
+        width: 70%;
+    }
+}
+
+/* Delete Confirmation Modal */
+.confirm-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.confirm-box {
+    background-color: var(--l-card);
+    color: var(--l-text-primary);
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.confirm-overlay.show {
+    display: flex;
+}
+
+.confirm-overlay.show .confirm-box {
+    transform: scale(1);
+}
+
+.confirm-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.confirm-box p {
+    font-size: 0.95rem;
+    color: var(--l-text-secondary);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.confirm-buttons button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    flex: 1;
+}
+
+.btn-cancel {
+    background-color: #E5E7EB;
+    color: #374151;
+}
+
+.btn-cancel:hover {
+    background-color: #D1D5DB;
+}
+
+.btn-confirm {
+    background-color: #EF4444;
+    color: white;
+}
+
+.btn-confirm:hover {
+    background-color: #DC2626;
+}
+
+/* Dark mode adjustment for confirm modal */
+.dark .confirm-box {
+    background-color: var(--d-card);
+    color: var(--d-text-primary);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .confirm-box p {
+    color: var(--d-text-seconday);
+}
+
+.dark .btn-cancel {
+    background-color: #374151;
+    color: #F9FAFB;
+}
+
+.dark .btn-cancel:hover {
+    background-color: #4B5563;
+}
