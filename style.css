@@ -25,6 +25,15 @@ html,
 body {
     min-height: 100vh;
     width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+body.light {
+    background-color: var(--l-background);
+}
+
+body.dark {
+    background-color: var(--d-background);
 }
 
 .light-mode {
@@ -38,6 +47,9 @@ main {
 }
 
 nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     border-radius: 20px;
     padding: 0 3vw;
     height: 60px;
@@ -149,7 +161,6 @@ section {
 .form {
     display: none;
     position: absolute;
-    background-color: rgba(59, 59, 59, 0.8);
     height: 100%;
     width: 100%;
     border-radius: 10px;
@@ -157,6 +168,15 @@ section {
     justify-content: center;
     gap: 20px;
     flex-direction: column;
+    overflow: hidden;
+}
+
+.light .form {
+    background-color: var(--l-background);
+}
+
+.dark .form {
+    background-color: var(--d-background);
 }
 
 .form form {
@@ -260,8 +280,9 @@ main.dark {
 }
 
 .light .form form {
-    background-color: var(--l-background);
+    background-color: var(--l-card);
     color: var(--l-text-primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .light .form h1 {
@@ -274,8 +295,9 @@ main.dark {
 }
 
 .dark .form form {
-    background-color: var(--d-background);
+    background-color: var(--d-card);
     color: var(--d-text-primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .dark .form h1 {

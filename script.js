@@ -19,6 +19,8 @@ const cancelDeleteBtn = document.querySelector("#cancelDelete");
 darkmode.addEventListener("click", () => {
   mainDiv.classList.add("dark");
   mainDiv.classList.remove("light");
+  document.body.classList.add("dark");
+  document.body.classList.remove("light");
 
   localStorage.setItem("theme", "dark");
 
@@ -29,6 +31,8 @@ darkmode.addEventListener("click", () => {
 lightmode.addEventListener("click", () => {
   mainDiv.classList.add("light");
   mainDiv.classList.remove("dark");
+  document.body.classList.add("light");
+  document.body.classList.remove("dark");
 
   localStorage.setItem("theme", "light");
 
@@ -41,12 +45,16 @@ const theme = localStorage.getItem("theme");
 if (theme === "dark") {
   mainDiv.classList.add("dark");
   mainDiv.classList.remove("light");
+  document.body.classList.add("dark");
+  document.body.classList.remove("light");
 
   lightmode.style.display = "block";
   darkmode.style.display = "none";
 } else {
   mainDiv.classList.add("light");
   mainDiv.classList.remove("dark");
+  document.body.classList.add("light");
+  document.body.classList.remove("dark");
 
   lightmode.style.display = "none";
   darkmode.style.display = "block";
@@ -54,10 +62,12 @@ if (theme === "dark") {
 
 addTaskbtn.addEventListener("click", () => {
   formDiv.style.display = "flex";
+  uiDiv.style.display = "none";
 });
 
 closeForm.addEventListener("click", () => {
   formDiv.style.display = "none";
+  uiDiv.style.display = "grid";
 });
 
 form.addEventListener("submit", (e) => {
@@ -81,6 +91,7 @@ form.addEventListener("submit", (e) => {
 
   form.reset();
   formDiv.style.display = "none";
+  uiDiv.style.display = "grid";
   ui();
 });
 
@@ -133,6 +144,7 @@ function editTask(id) {
   edit = true;
   editId = Number(id);
   formDiv.style.display = "flex";
+  uiDiv.style.display = "none";
   form.elements[0].value = tasks[editId].title;
   form.elements[1].value = tasks[editId].description;
   form.elements[2].value = tasks[editId].priority;
